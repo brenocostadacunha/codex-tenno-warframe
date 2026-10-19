@@ -252,6 +252,79 @@ td.res{white-space:nowrap}
 .empty{color:var(--dim);padding:20px;text-align:center}
 
 .mesa-theme{--accent:var(--gold);--accent-g:var(--gold-g)}
+
+/* ---------- clickable affordances ---------- */
+.mod .own,.wep .own{cursor:pointer;font:inherit;padding:0}
+.wep .own{padding:3px 9px;font-size:11px;font-weight:600}
+.mod .own:hover,.wep .own:hover{border-color:var(--ok)}
+.mod .more,.wep .more{position:absolute;inset:auto 0 0 0;padding:7px;text-align:center;font:700 11px Rajdhani;letter-spacing:.16em;text-transform:uppercase;color:var(--rc,var(--accent));background:linear-gradient(transparent,var(--panel) 60%);opacity:0;transition:.15s;pointer-events:none}
+.mod:hover .more,.wep:hover .more{opacity:1}
+.altlink{cursor:pointer;color:var(--accent)!important;border-bottom:1px dashed var(--accent)}
+.bcard li{cursor:pointer;border-radius:8px;padding:2px 4px;margin:0 -4px}
+.bcard li:hover{background:var(--panel2)}
+
+/* ---------- drawer ---------- */
+.dr-back{position:fixed;inset:0;z-index:50;background:rgba(3,5,9,.62);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .25s}
+.dr-back.on{opacity:1;pointer-events:auto}
+.drawer{--rc:var(--accent);position:fixed;top:0;right:0;z-index:51;width:min(620px,100vw);height:100vh;overflow-y:auto;background:var(--bg);border-left:1px solid var(--line2);box-shadow:-40px 0 90px rgba(0,0,0,.55);transform:translateX(104%);transition:transform .32s cubic-bezier(.2,.8,.2,1)}
+.drawer.on{transform:none}
+.drawer.r-c{--rc:var(--r-common)}.drawer.r-u{--rc:var(--r-uncommon)}.drawer.r-r{--rc:var(--r-rare)}.drawer.r-l{--rc:var(--r-legendary)}
+.dr-x{position:absolute;top:14px;right:14px;z-index:3;width:38px;height:38px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(0,0,0,.55);color:#fff;font-size:18px;cursor:pointer}
+.dr-x:hover{border-color:var(--rc)}
+.dr-hero{position:relative;min-height:250px;display:flex;align-items:flex-end;overflow:hidden;border-bottom:1px solid var(--line)}
+.dr-hero .bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(1.1)}
+.dr-hero .bg.blur{filter:blur(28px) saturate(1.4);opacity:.55;transform:scale(1.2)}
+.dr-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,8,12,.1) 0%,rgba(6,8,12,.35) 45%,var(--bg) 100%)}
+:root[data-theme="light"] .dr-hero::after{background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(238,241,246,.4) 45%,var(--bg) 100%)}
+.dr-hero .fig{position:absolute;right:18px;top:34px;height:180px;max-width:62%;object-fit:contain;z-index:1;filter:drop-shadow(0 14px 30px rgba(0,0,0,.6))}
+.dr-hero .txt{position:relative;z-index:2;padding:24px 26px 20px;width:100%}
+.dr-hero .line{width:54px;height:3px;background:var(--rc);box-shadow:0 0 14px var(--rc);margin-bottom:12px}
+.dr-hero h2{margin:0;font-size:38px;line-height:1;text-transform:uppercase;color:var(--text)}
+.dr-hero .eff{margin:8px 0 12px;font-size:15px;color:var(--text)}
+.dr-tags{display:flex;gap:6px;flex-wrap:wrap}
+.dr-tags .tag.rc{color:var(--rc);border-color:var(--rc)}
+.dr-body{padding:6px 26px 40px}
+.dr-sec{margin-top:24px}
+.dr-sec h5{display:flex;align-items:center;gap:10px;margin:0 0 12px;font:700 13px Rajdhani;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.dr-sec h5::after{content:"";flex:1;height:1px;background:var(--line)}
+.route{display:flex;flex-direction:column;gap:8px}
+.route div{position:relative;display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:var(--panel);border:1px solid var(--line)}
+.route div:first-child{border-color:var(--rc);background:linear-gradient(90deg,color-mix(in srgb,var(--rc) 14%,transparent),var(--panel) 70%)}
+.route .rk{flex:0 0 auto;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;font:700 15px Rajdhani;background:var(--panel2);border:1px solid var(--line2)}
+.route div:first-child .rk{background:var(--rc);color:#000;border-color:var(--rc)}
+.route .best{margin-left:auto;font:700 10.5px Rajdhani;letter-spacing:.12em;text-transform:uppercase;color:var(--rc)}
+.drops{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.drop{display:grid;grid-template-columns:1fr auto 120px;gap:12px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line);font-size:13px}
+.drop:last-child{border-bottom:0}
+.drop:nth-child(odd){background:var(--panel)}
+.kind{font:700 10.5px Rajdhani;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.k-Bounty{background:rgba(71,214,143,.14);color:var(--ok)} .k-Vendedor{background:rgba(227,184,86,.16);color:var(--gold)}
+.k-Missão{background:rgba(56,198,255,.14);color:var(--volt)} .k-Inimigo{background:rgba(255,92,122,.14);color:var(--bad)}
+.k-Caches,.k-Duviri,.k-Arbitragem,.k-Cofre{background:var(--panel2);color:var(--muted);border:1px solid var(--line2)}
+.chance{display:flex;align-items:center;gap:8px}
+.chance .b{flex:1;height:6px;border-radius:9px;background:var(--panel2);overflow:hidden}
+.chance .b i{display:block;height:100%;background:var(--rc);border-radius:9px}
+.chance span{font:700 13px Rajdhani;min-width:44px;text-align:right}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.st{padding:12px;border-radius:12px;background:var(--panel);border:1px solid var(--line)}
+.st b{display:block;font:700 22px/1 Rajdhani}
+.st span{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.st .b{height:4px;border-radius:9px;background:var(--panel2);margin-top:8px;overflow:hidden}.st .b i{display:block;height:100%;background:var(--accent)}
+.dots{letter-spacing:2px;color:var(--accent)}
+.recipe{display:flex;flex-direction:column;gap:6px}
+.rrow{display:grid;grid-template-columns:40px 74px 1fr;gap:10px;align-items:center;padding:9px 12px;border-radius:12px;background:var(--panel);border:1px solid var(--line)}
+.rrow img,.rrow .ph{width:36px;height:36px;object-fit:contain}
+.rrow .ph{display:grid;place-items:center;border-radius:8px;background:var(--panel2);font-size:15px;color:var(--dim)}
+.rrow b{font:700 16px Rajdhani}
+.rrow div small{display:block;color:var(--muted);font-size:12px}
+.costs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.costs span{font-size:12.5px;padding:6px 10px;border-radius:9px;background:var(--panel2);border:1px solid var(--line)}
+.dr-own{all:unset;cursor:pointer;display:block;text-align:center;margin-top:26px;padding:13px;border-radius:12px;font:700 15px Rajdhani;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--rc);color:var(--rc)}
+.dr-own.on{background:var(--ok);border-color:var(--ok);color:#000}
+.usedin{display:flex;gap:6px;flex-wrap:wrap}
+.drawer .chip{cursor:pointer}
+.drawer .chip:hover{border-color:var(--rc)}
+@media (max-width:560px){.drop{grid-template-columns:1fr auto}.drop .chance{grid-column:1/-1}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.dr-hero .fig{height:120px}.dr-hero h2{font-size:30px}.dr-body{padding:6px 16px 40px}}
 footer{color:var(--dim);font-size:12px;text-align:center;padding:30px 16px}
 
 /* ---------- responsive ---------- */
@@ -523,7 +596,11 @@ footer{color:var(--dim);font-size:12px;text-align:center;padding:30px 16px}
 <footer>Dados: wiki.warframe.com e WFCD (warframestat.us), outubro de 2026. Imagens © Digital Extremes. As chances de drop mudam com updates, então confira em warframe.com/droptables.</footer>
 </main>
 </div>
+<div class="dr-back" id="drb"></div>
+<div class="drawer" id="dr" role="dialog" aria-modal="true"></div>
 
+<script src="drops.js"></script>
+<script src="weapons.js"></script>
 <script>
 /* ================= DATA ================= */
 const R={c:'r-c',u:'r-u',r:'r-r',l:'r-l'};
@@ -707,6 +784,120 @@ const PAGES=[
  ['farm','⌕','Onde farmar','Busca de mods'],
 ];
 
+/* ================= DETALHES (drawer) ================= */
+const LVL=[
+ ['Bounties de Cetus e do Cambion Drift','O XP é dividido entre as armas equipadas e você ainda farma mods.'],
+ ['Helene, Saturno (Defesa)','Ondas rápidas e muito inimigo. Draco (Ceres) em grupo público também serve.'],
+ ['Hydron, Sedna (Defesa)','O melhor lugar clássico pra upar. Bounties altas do Cambion Drift também rendem bem.'],
+ ['Hydron (Sedna) e bounties da Zariman','Depois, Steel Path pra upar mais rápido.'],
+];
+const ALTS=[
+ {n:'Boltor',i:'Boltor.png',s:'Primária',mr:2,ty:'Rifle automático',get:'Mercado · blueprint de 15.000 créditos',why:'Automático e fácil de usar. A Junção de Marte pede pra construir.',ph:0},
+ {n:'Burston',i:'Burston.png',s:'Primária',mr:0,ty:'Rifle de rajada',get:'Mercado · blueprint de 15.000',why:'Rajadas precisas e confortáveis no começo.',ph:0},
+ {n:'Lex',i:'Lex.png',s:'Secundária',mr:3,ty:'Pistola de alto dano',get:'Mercado (blueprint)',why:'Cada tiro bate forte. Ótima pra headshots.',ph:0},
+ {n:'Galatine',i:'Galatine.png',s:'Corpo-a-corpo',mr:3,ty:'Espadão',get:'Mercado · blueprint de 25.000',why:'Golpes largos que pegam grupos inteiros.',ph:0},
+ {n:'Kronen',i:'Kronen.png',s:'Corpo-a-corpo',mr:3,ty:'Tonfas',get:'Mercado · blueprint de 65.000',why:'Combos rápidos e bom crítico.',ph:0},
+ {n:'Soma',i:'Soma.png',s:'Primária',mr:6,ty:'Rifle crítico automático',get:'Mercado · blueprint de 50.000',why:'Pente enorme e crítico alto. Faz parte do caminho pra Soma Prime.',ph:1},
+ {n:'Tigris',i:'Tigris.png',s:'Primária',mr:7,ty:'Shotgun de dois tiros',get:'Mercado · blueprint de 40.000',why:'Dois tiros de dano absurdo. Mata chefes rápido.',ph:1},
+ {n:'Tonkor',i:'Tonkor.png',s:'Primária',mr:5,ty:'Lança-granadas',get:'Mercado · blueprint de 30.000',why:'Explosões em área e crítico alto.',ph:1},
+ {n:'Venka',i:'Venka.png',s:'Corpo-a-corpo',mr:4,ty:'Garras',get:'Mercado · blueprint de 15.000',why:'Rápida e com crítico alto.',ph:1},
+ {n:'Dual Ichor',i:'DualIchor.png',s:'Corpo-a-corpo',mr:6,ty:'Machados duplos · toxina',get:'Laboratório Bio do Dojo (precisa de clã)',why:'Toxina em área. Ótima contra Corpus.',ph:1},
+ {n:'Kohm',i:'Kohm.png',s:'Primária',mr:5,ty:'Shotgun que acelera',get:'Mercado · blueprint de 20.000',why:'Fica mais rápida e mais forte enquanto atira. Muito status.',ph:2},
+ {n:'Zhuge',i:'Zhuge.png',s:'Primária',mr:10,ty:'Besta automática',get:'Mercado · blueprint de 20.000',why:'Projéteis que atravessam inimigos, com bom status.',ph:2},
+ {n:'Hate',i:'Hate.png',s:'Corpo-a-corpo',mr:8,ty:'Foice',get:'Blueprint dropado pelo Stalker',why:'Foice com dano de corte alto.',ph:2},
+ {n:'Felarx',i:'ZarimanPumpShotgun.png',s:'Primária',mr:14,ty:'Shotgun Incarnon',get:'Holdfasts (Cavalero), rank Guardian · Zariman',why:'A shotgun Incarnon da Zariman. Brutal no Steel Path.',ph:3},
+ {n:'Kuva Nukor',i:'KuvaNukor.png',s:'Secundária',mr:13,ty:'Feixe em cadeia',get:'Derrote um Kuva Lich que tenha essa arma (quest The War Within)',why:'O feixe pula entre inimigos e tem crítico altíssimo.',ph:3},
+ {n:'Kuva Bramma',i:'KuvaGrnBow.png',s:'Primária',mr:15,ty:'Arco explosivo',get:'Derrote um Kuva Lich que tenha essa arma (quest The War Within)',why:'Flechas que explodem em fragmentos. Limpa a tela.',ph:3},
+];
+const WI={};
+PHASES.forEach((p,pi)=>p.w.forEach(w=>WI[w.n]={...w,ph:pi}));
+PHASES_MESA.forEach(p=>p.w.forEach(w=>WI[w.n]={...w,ph:3}));
+ALTS.forEach(w=>{WI[w.n]=WI[w.n]||w});
+const WCLS={Paris:0,Boltor:0,Burston:0,Soma:0,Tonkor:0,Zhuge:0,Phenmor:0,'Kuva Bramma':0,Hek:1,Tigris:1,Cedo:1,Kohm:1,Felarx:1,Kunai:2,Lex:2,Atomos:2,Zymos:2,Laetum:2,'Kuva Nukor':2,Orthos:3,Galatine:3,Kronen:3,Nikana:3,Venka:3,'Dual Ichor':3,Keratinos:3,Hate:3,Praedos:3};
+const RESF={
+ 'Alloy Plate':['AlloyPlate.png','Ceres (Draco) · Vênus · Plutão'],
+ 'Plastids':['ComponentPlastids.png','Saturno (Piscinas) · Urano · Phobos · Eris'],
+ 'Neurodes':['ComponentNeurode.png','Terra (Tikal) · Lua · Deimos · Eris'],
+ 'Cryotic':['ComponentCryotic.png','Escavação: Everest (Terra) no começo, Hieracon (Plutão) depois'],
+ 'Oxium':['ComponentOxium.png','Ospreys de Oxium (Corpus) · Io, Júpiter (Defesa)'],
+ 'Forma':[null,'Relíquias do Void (drop comum) · loja da Nightwave'],
+ 'Mutagen Mass':['InfestedComponent.png','Craftada no Foundry com Mutagen Samples (Deimos e Eris)'],
+ 'Voidgel Orb':['ZarimanMiscItemA.png','Missões da Zariman Ten Zero'],
+ 'Voidplume Pinion':['VoidAngelItem.png','Zariman (Void Angels e bounties)'],
+ 'Voidplume Quill':['ZarimanDogTagBounty.png','Bounties da Zariman'],
+ 'Entrati Lanthorn':['ZarimanMiscItemB.png','Zariman e Netracells'],
+ 'Thrax Plasm':['VoidWraithItem.png','Thrax na Zariman · Circulus (Lua)'],
+};
+Object.entries(RES).forEach(([k,[i,w]])=>RESF[k]=[i,w]);
+['Barrel','Receiver','Stock','Blades','Gauntlet'].forEach(p=>RESF[p]=[null,'Peça vendida no mesmo lugar do blueprint']);
+const PT={Earth:'Terra',Mars:'Marte',Mercury:'Mercúrio',Venus:'Vênus',Jupiter:'Júpiter',Saturn:'Saturno',Uranus:'Urano',Neptune:'Netuno',Pluto:'Plutão',Survival:'Sobrevivência',Defense:'Defesa',Interception:'Interceptação',Excavation:'Escavação',Capture:'Captura',Exterminate:'Extermínio','Mobile Defense':'Defesa Móvel',Level:'Nível'};
+const GRU=['Leekter','Shik Tal','Vem Tabook'];
+function trLoc(l){
+  let s=l.replace(/\b(Mobile Defense|Earth|Mars|Mercury|Venus|Jupiter|Saturn|Uranus|Neptune|Pluto|Survival|Defense|Interception|Excavation|Capture|Exterminate|Level)\b/g,m=>PT[m]);
+  if(GRU.includes(l))s+=' (Grustrag Three)';
+  return s.replace(/\//,' · ');
+}
+function altLinks(t){return t.replace(/<b>([^<]+)<\/b>/g,(m,n)=>WI[n]&&!PHASES.some(p=>p.w.some(w=>w.n===n))?`<b class="altlink" data-wep="${esc(n)}">${n}</b>`:m)}
+const dr=document.getElementById('dr'),drb=document.getElementById('drb');
+function showDr(cls,html){dr.className='drawer on '+cls;dr.innerHTML=html;dr.scrollTop=0;drb.classList.add('on');document.body.style.overflow='hidden'}
+function closeDr(){dr.classList.remove('on');drb.classList.remove('on');document.body.style.overflow=''}
+const RNAME={c:'Comum',u:'Incomum',r:'Raro',l:'Lendário'};
+function chanceBar(ch,kind){
+  const label=kind==='Vendedor'&&ch>=100?'Compra':ch>=100?'100%':ch.toLocaleString('pt-BR',{maximumFractionDigits:2})+'%';
+  const w=Math.max(4,Math.min(100,ch>=100?100:Math.sqrt(ch/40)*100));
+  return `<div class="chance"><div class="b"><i style="width:${w}%"></i></div><span>${label}</span></div>`;
+}
+function modChip(n){const m=M[n];return m?`<span class="chip ${R[m.r]}" data-mod="${esc(n)}"><img src="img/${m.i}" alt="">${esc(n)}</span>`:''}
+function openMod(name){
+  const m=M[name]; if(!m)return;
+  const drops=(typeof DROPS!=='undefined'&&DROPS[name])||[];
+  const used=[];
+  const BN={voltA:'Volt · Build A',voltB:'Volt · Build B',mesaF:'Mesa Prime',mesaR:'Regulators Prime',mesaA:'Mesa · Arcanes'};
+  Object.entries(BUILDS).forEach(([k,b])=>{if(b.some(x=>x[0]===name))used.push(BN[k])});
+  WB.forEach(b=>{if(b.m.some(x=>x[0]===name))used.push('Build '+b.t)});
+  showDr(R[m.r],`
+  <button class="dr-x" aria-label="Fechar">✕</button>
+  <div class="dr-hero"><div class="bg" style="background-image:url('img/${m.i}')"></div>
+    <div class="txt"><div class="line"></div><h2>${esc(name)}</h2><div class="eff">${m.e}</div>
+    <div class="dr-tags"><span class="tag rc">${RNAME[m.r]}</span>${used.map(u=>`<span class="tag">${u}</span>`).join('')}</div></div></div>
+  <div class="dr-body">
+    <div class="dr-sec"><h5>Melhor rota pra pegar</h5><div class="route">${m.s.map((s,i)=>`<div><span class="rk">${i+1}</span><span>${s}</span>${i===0?'<span class="best">Recomendado</span>':''}</div>`).join('')}</div></div>
+    <div class="dr-sec"><h5>Melhores missões e fontes · por chance</h5>${drops.length?`<div class="drops">${drops.map(([l,c,k])=>`<div class="drop"><span>${esc(trLoc(l))}</span><span class="kind k-${k.split(' ')[0]}">${k}</span>${chanceBar(c,k)}</div>`).join('')}</div>`
+      :`<div class="callout info"><div class="ic">i</div><p>Não dropa em missões. Vem de vendedor, do Baro Ki'Teer ou de trade (veja a rota acima).</p></div>`}
+      <p style="font-size:12px;color:var(--dim);margin:10px 0 0">A chance é por recompensa ou por kill. "rot. C" é a 3ª rotação das missões longas (ex.: a cada 20 min de Sobrevivência, ou a onda 20 de Defesa).</p></div>
+    <button class="dr-own${owned['m:'+name]?' on':''}" data-own="m:${esc(name)}">${owned['m:'+name]?'✓ Já tenho':'Marcar que já tenho'}</button>
+  </div>`);
+}
+function openWep(name){
+  const w=WI[name]; if(!w)return;
+  const d=(typeof WDATA!=='undefined'&&WDATA[name])||{};
+  const b=WB[WCLS[name]];
+  const lvl=LVL[w.ph||0];
+  const fmt=n=>n==null?'—':n.toLocaleString('pt-BR');
+  const hrs=d.time?(d.time>=86400?(d.time/86400)+' dia':(d.time/3600)+'h'):null;
+  const stat=(v,l,max,suf='')=>`<div class="st"><b>${v==null?'—':v+suf}</b><span>${l}</span><div class="b"><i style="width:${Math.min(100,(v||0)/max*100)}%"></i></div></div>`;
+  const comps=(d.comps||[]).map(([r,q])=>{const f=RESF[r]||[null,'—'];return `<div class="rrow">${f[0]?`<img src="img/${f[0]}" alt="">`:'<span class="ph">◆</span>'}<b>${fmt(q)}</b><div>${r}<small>${f[1]}</small></div></div>`}).join('');
+  const mesa=w.ph===3?' mesa-theme':'';
+  showDr(mesa,`
+  <button class="dr-x" aria-label="Fechar">✕</button>
+  <div class="dr-hero" style="min-height:290px"><div class="bg blur" style="background-image:url('img/${w.i}')"></div><img class="fig" src="img/${w.i}" alt="">
+    <div class="txt"><div class="line"></div><h2>${esc(name)}</h2><div class="eff">${w.ty}</div>
+    <div class="dr-tags"><span class="tag rc">MR ${w.mr}</span><span class="tag">${w.s}</span>${d.dis?`<span class="tag">Riven <span class="dots">${'●'.repeat(d.dis)}${'○'.repeat(5-d.dis)}</span></span>`:''}</div></div></div>
+  <div class="dr-body">
+    <div class="dr-sec"><h5>Atributos base</h5><div class="stats">
+      ${stat(d.dmg,'Dano total',400)}${stat(d.cc,'Chance crítica',50,'%')}${stat(d.cm,'Mult. crítico',4,'x')}
+      ${stat(d.sc,'Chance de status',50,'%')}${stat(d.fr,'Cadência',12)}${stat(w.mr,'Mastery Rank',16)}
+    </div></div>
+    <div class="dr-sec"><h5>Como conseguir</h5><div class="route"><div><span class="rk">1</span><span>${w.get}</span><span class="best">Fonte</span></div><div><span class="rk">★</span><span>${w.why}</span></div></div></div>
+    ${comps||d.build?`<div class="dr-sec"><h5>Receita e melhores missões pra farmar</h5>
+      <div class="costs">${d.bp?`<span>Blueprint: <b>${fmt(d.bp)}</b> créditos</span>`:''}${d.build?`<span>Construir: <b>${fmt(d.build)}</b> créditos</span>`:''}${hrs?`<span>Tempo: <b>${hrs}</b></span>`:''}</div>
+      <div class="recipe">${comps}</div></div>`:''}
+    <div class="dr-sec"><h5>Melhor lugar pra upar</h5><div class="route"><div><span class="rk">↑</span><span><b>${lvl[0]}</b><br><small style="color:var(--muted)">${lvl[1]}</small></span></div></div></div>
+    ${b?`<div class="dr-sec"><h5>Build recomendada · ${b.t}</h5><div class="usedin">${b.m.map(x=>modChip(x[0])).join('')}</div><p style="font-size:12px;color:var(--dim);margin:10px 0 0">Clique num mod pra ver onde ele dropa.</p></div>`:''}
+    <button class="dr-own${owned['w:'+name]?' on':''}" data-own="w:${esc(name)}">${owned['w:'+name]?'✓ Já tenho':'Marcar que já tenho'}</button>
+  </div>`);
+}
+
 /* ================= STATE ================= */
 const S={get(k,d){try{const v=localStorage.getItem('codex-'+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem('codex-'+k,JSON.stringify(v))}catch(e){}}};
 let owned=S.get('owned',{}), steps=S.get('steps',{});
@@ -715,18 +906,18 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',
 /* ================= RENDER ================= */
 function modCard(name,slot){
   const m=M[name]; if(!m) return '';
-  return `<div class="mod ${R[m.r]}${owned['m:'+name]?' owned':''}" data-own="m:${esc(name)}" title="Clique para marcar que você tem">
-    <div class="mod-in"><div class="mod-art">${slot?`<span class="slot">${slot}</span>`:''}<span class="own">✓</span><img loading="lazy" src="img/${m.i}" alt=""></div>
-    <div class="mod-body"><div class="mod-name">${esc(name)}</div><div class="mod-eff">${m.e}</div><div class="src">${m.s.map(x=>`<span>${x}</span>`).join('')}</div></div></div></div>`;
+  return `<div class="mod ${R[m.r]}${owned['m:'+name]?' owned':''}" data-mod="${esc(name)}" title="Ver onde pegar">
+    <div class="mod-in"><div class="mod-art">${slot?`<span class="slot">${slot}</span>`:''}<button class="own" data-own="m:${esc(name)}" title="Marcar que você tem">✓</button><img loading="lazy" src="img/${m.i}" alt=""></div>
+    <div class="mod-body"><div class="mod-name">${esc(name)}</div><div class="mod-eff">${m.e}</div><div class="src">${m.s.map(x=>`<span>${x}</span>`).join('')}</div></div><div class="more">Ver missões ›</div></div></div>`;
 }
 document.querySelectorAll('[data-build]').forEach(el=>{
   el.innerHTML=BUILDS[el.dataset.build].map(([n,s])=>modCard(n,s)).join('');
 });
 document.getElementById('wbuilds').innerHTML=WB.map(b=>`<div class="bcard"><h4>${b.t}</h4><div class="sub">${b.w} · ${b.sub}</div><ol>${
-  b.m.map(([n,note])=>{const m=M[n];return `<li class="${R[m.r]}"><img loading="lazy" src="img/${m.i}" alt=""><span>${esc(n)}</span><small>${note}</small></li>`}).join('')}</ol></div>`).join('');
+  b.m.map(([n,note])=>{const m=M[n];return `<li class="${R[m.r]}" data-mod="${esc(n)}" title="Ver onde pegar"><img loading="lazy" src="img/${m.i}" alt=""><span>${esc(n)}</span><small>${note}</small></li>`}).join('')}</ol></div>`).join('');
 function phaseHTML(P){return P.map(p=>`<div class="phase"><div class="phase-h"><h3>${p.t}</h3><span class="mr">${p.mr}</span><p>${p.d}</p></div><div class="weps">${
-  p.w.map(w=>`<div class="wep${owned['w:'+w.n]?' owned':''}" data-own="w:${esc(w.n)}"><div class="wep-top"><span class="tag slotb">${w.s}</span><span class="mrb">MR ${w.mr}</span><img loading="lazy" src="img/${w.i}" alt="${esc(w.n)}"><span class="own">${owned['w:'+w.n]?'✓ Tenho':'Marcar'}</span></div>
-  <div class="wep-b"><h4>${w.n}</h4><div class="type">${w.ty}</div><p><b>Onde:</b> ${w.get}</p><p><b>Por quê:</b> ${w.why}</p><div class="alt">${w.alt}</div></div></div>`).join('')}</div></div>`).join('')}
+  p.w.map(w=>`<div class="wep${owned['w:'+w.n]?' owned':''}" data-wep="${esc(w.n)}" title="Ver detalhes e missões"><div class="wep-top"><span class="tag slotb">${w.s}</span><span class="mrb">MR ${w.mr}</span><img loading="lazy" src="img/${w.i}" alt="${esc(w.n)}"><button class="own" data-own="w:${esc(w.n)}">${owned['w:'+w.n]?'✓ Tenho':'Marcar'}</button></div>
+  <div class="wep-b"><h4>${w.n}</h4><div class="type">${w.ty}</div><p><b>Onde:</b> ${w.get}</p><p><b>Por quê:</b> ${w.why}</p><div class="alt">${altLinks(w.alt)}</div></div><div class="more">Ver detalhes ›</div></div>`).join('')}</div></div>`).join('')}
 document.getElementById('phases').innerHTML=phaseHTML(PHASES);
 document.getElementById('phasesMesa').innerHTML=phaseHTML(PHASES_MESA);
 
@@ -781,14 +972,25 @@ let cur=S.get('page','inicio');
 function go(id){cur=id;S.set('page',id);document.querySelectorAll('.page').forEach(p=>p.classList.toggle('on',p.id===id));renderNav();window.scrollTo({top:0})}
 
 /* clicks */
+function setOwnedUI(k){
+  const on=!!owned[k];
+  document.querySelectorAll(`[data-own="${CSS.escape(k)}"]`).forEach(x=>{
+    const card=x.closest('.mod,.wep'); if(card)card.classList.toggle('owned',on);
+    if(x.closest('.wep-top'))x.textContent=on?'✓ Tenho':'Marcar';
+    if(x.classList.contains('dr-own')){x.classList.toggle('on',on);x.textContent=on?'✓ Já tenho':'Marcar que já tenho'}
+  });
+}
 document.addEventListener('click',e=>{
+  if(e.target.closest('.dr-x')||e.target.id==='drb'){closeDr();return}
   const o=e.target.closest('[data-own]');
-  if(o){const k=o.dataset.own;owned[k]=!owned[k];S.set('owned',owned);
-    document.querySelectorAll(`[data-own="${CSS.escape(k)}"]`).forEach(x=>{x.classList.toggle('owned',owned[k]);const s=x.querySelector('.wep-top .own');if(s)s.textContent=owned[k]?'✓ Tenho':'Marcar'});
-    if(filt!=='all'&&o.closest('#allmods'))renderAll(); updateProg(); return}
+  if(o){const k=o.dataset.own;owned[k]=!owned[k];S.set('owned',owned);setOwnedUI(k);
+    if(filt!=='all')renderAll(); updateProg(); return}
+  const md=e.target.closest('[data-mod]'); if(md){openMod(md.dataset.mod);return}
+  const wp=e.target.closest('[data-wep]'); if(wp){openWep(wp.dataset.wep);return}
   const st=e.target.closest('[data-step]');
   if(st){const k=st.dataset.step;steps[k]=!steps[k];S.set('steps',steps);st.classList.toggle('done',steps[k]);updateProg()}
 });
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDr()});
 document.getElementById('reset').onclick=()=>{if(confirm('Zerar todo o progresso marcado?')){owned={};steps={};S.set('owned',owned);S.set('steps',steps);location.reload()}};
 const root=document.documentElement;const th=S.get('theme',null);if(th)root.dataset.theme=th;
 document.getElementById('theme').onclick=()=>{const n=root.dataset.theme==='light'?'dark':'light';root.dataset.theme=n;S.set('theme',n)};
